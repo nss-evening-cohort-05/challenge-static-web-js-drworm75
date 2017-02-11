@@ -1,30 +1,61 @@
 var buildButton = document.getElementById("build");
 
-function buildTree (clickEvent) {
+
+
+function tree (clickEvent) {
 	var treeSize = document.getElementById("size").value;
-	// console.log(treeSize);	
 	var treeCharacter = document.getElementById("character").value;
 	// console.log(treeCharacter);
-	var printTree = "";
-	
+
 	for (var i = 0; i < treeSize; i++) {
-
-		for (var j = 0; j < ((treeSize * 2) - 2); j++) {
-			// console.log(treeSize - 1);
-			// console.log("i =" + i);
-			// console.log("j =" + j);
-			console.log(i + j);
-			if (j + i === (treeSize - 1) && (j + i) <= ((treeSize - 1) + j)) {
-				printTree += treeCharacter;
-			} else {
-				printTree += "x";
-				
-			}
-	}
+		var printTree = "";
+		for (var j = 0; j < (treeSize - ( i + 1)); j++) {		
+			printTree += " ";
+		}
+		for (var k = 0; k < ((i * 2) + 1); k++) {
+			printTree += treeCharacter
+		}
 		console.log(printTree);
+
+
+		
+	}
 }
-}
 
 
 
-buildButton.addEventListener("click", buildTree);
+
+buildButton.addEventListener("click", tree);
+
+
+//Tree with orniments
+// var buildButton = document.getElementById("build");
+
+// function buildTree (clickEvent) {
+// 	var treeSize = document.getElementById("size").value;
+// 	var treeCharacter = document.getElementById("character").value;
+// 	// console.log(treeCharacter);
+
+// 	for (var i = 0; i < treeSize; i++) {
+// 		var printTree = "";
+// 		for (var j = 0; j < (treeSize - ( i + 1)); j++) {		
+// 			printTree += " ";
+// 		}
+// 		for (var k = 0; k < ((i * 2) + 1); k++) {
+// 			if (k % 2 !== 0 && i % 2 !== 0) {
+// 				printTree += "o"
+// 			} else {
+// 				printTree += treeCharacter
+// 			}
+// 		}
+// 		console.log(printTree);
+
+
+		
+// 	}
+// }
+
+
+
+
+// buildButton.addEventListener("click", buildTree);
