@@ -1,19 +1,31 @@
 var buildButton = document.getElementById("build");
+// var inputs = document.querySelectorAll("input[type=text]");
 
 
-
-function tree (clickEvent) {
+function treeInfo () {
 	var treeSize = document.getElementById("size").value;
 	var treeCharacter = document.getElementById("character").value;
-	// console.log(treeCharacter);
+		if (treeSize === "" || treeCharacter == "") {
+			alert("Boths field must have a value!")
+		} else {
+			var treeComponets = {	height: treeSize,
+									char: treeCharacter };
+			tree(treeComponets);
+		}
+}
 
-	for (var i = 0; i < treeSize; i++) {
+
+
+
+function tree (treeComponets) {
+
+	for (var i = 0; i < treeComponets.height; i++) {
 		var printTree = "";
-		for (var j = 0; j < (treeSize - ( i + 1)); j++) {		
+		for (var j = 0; j < (treeComponets.height - ( i + 1)); j++) {		
 			printTree += " ";
 		}
 		for (var k = 0; k < ((i * 2) + 1); k++) {
-			printTree += treeCharacter
+			printTree += treeComponets.char
 		}
 		console.log(printTree);
 
@@ -22,10 +34,41 @@ function tree (clickEvent) {
 	}
 }
 
+function checkBuild(e) {
+	if(e && e.keyCode == 13) {
+		treeInfo();
+	}
+}
+
+
+buildButton.addEventListener("click", treeInfo);
 
 
 
-buildButton.addEventListener("click", tree);
+// inputs.addEventListener("keyup", function (event){
+// 	if (event.keyCode == 13) {
+// 		buildButton.click();
+// 	}
+// });
+
+// document.onkeypress = function (e) {
+//  e = e || window.event;
+//  var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+//  if (charCode == 13) {
+
+//         // Do something here
+//         treeInfo();
+//     }
+// };
+
+
+//  buildButton
+//  	.addEventListener("keyup", treeInfo) {
+//     event.preventDefault();
+//     if (event.keyCode == 13) {
+//         buildButton.click();
+//     }
+// };
 
 
 //Tree with orniments
