@@ -1,5 +1,7 @@
 //Get a reference to the Grow Your Tree Button in the DOM
-var buildButton = document.getElementById("build"); 
+var buildButton = document.getElementById("build");
+var sizeField = document.getElementById("size");
+var charField = document.getElementById("character"); 
 
 
 //Function runs when Grow Your Tree is clicked.  
@@ -46,4 +48,6 @@ function checkBuild(e) {
 
 
 buildButton.addEventListener("click", treeInfo);
+sizeField.addEventListener("keyup", checkBuild);
+charField.addEventListener("keyup", checkBuild);
 
